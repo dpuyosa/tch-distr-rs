@@ -191,7 +191,7 @@ fn batch_mahalanobis(b_l: &Tensor, b_x: &Tensor) -> Tensor {
     let m_swap = flat_x_swap
         .triangular_solve(&flat_l, false, false, false)
         .0
-        .pow(2)
+        .pow_tensor_scalar(2)
         .sum_dim_intlist(&[-2], true, Float);
     let m = m_swap.transpose(0, 1);
 
