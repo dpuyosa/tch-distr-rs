@@ -28,7 +28,7 @@ Using `community/python-pytorch` instead worked for me.
 - [x] bernoulli
 - [ ] beta
 - [ ] binomial
-- [ ] categorical
+- [x] categorical
 - [x] cauchy
 - [ ] chi2
 - [ ] continuous_bernoulli
