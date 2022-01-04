@@ -22,22 +22,20 @@ pub fn tiny(kind: Kind) -> Option<f64> {
 
 /// Returns the biggest representable number (typically -max).
 pub fn max(kind: Kind) -> Option<f64> {
-    // TODO: need refine
     Some(match kind {
-        // Kind::Half => 6.103515625e-05,
-        Kind::Float => 3.4028234663852886e+38,
-        Kind::Double => 1.7976931348623157e+308,
+        Kind::Half => 65504.0,
+        Kind::Float => std::f32::MAX as _,
+        Kind::Double => std::f64::MAX,
         _ => return None,
     })
 }
 
 /// Returns the smallest representable number (typically -max).
 pub fn min(kind: Kind) -> Option<f64> {
-    // TODO: need refine
     Some(match kind {
-        // Kind::Half => 6.103515625e-05,
-        Kind::Float => -3.4028234663852886e+38,
-        Kind::Double => -1.7976931348623157e+308,
+        Kind::Half => -65504.0,
+        Kind::Float => std::f32::MIN as _,
+        Kind::Double => std::f64::MIN,
         _ => return None,
     })
 }
