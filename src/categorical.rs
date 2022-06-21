@@ -1,8 +1,6 @@
 use crate::{
-    utils::{logits_to_probs, min, probs_to_logits},
-    Distribution, KullackLeiberDivergence,
-};
-use tch::{Kind, Reduction, Tensor};
+    utils::{logits_to_probs, min, probs_to_logits}, Distribution};
+use tch::Tensor;
 
 /// A Categorical distribution.
 #[derive(Debug)]
