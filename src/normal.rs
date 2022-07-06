@@ -56,10 +56,16 @@ impl Distribution for Normal {
 
     fn sample(&self, shape: &[i64]) -> Tensor {
         let shape = self.extended_shape(shape);
-        Tensor::normal_tensor_tensor_out(
-            &Tensor::empty(&shape, (self.mean.kind(), self.mean.device())),
-            &self.mean.expand(&shape, false),
-            &self.stddev.expand(&shape, false),
+        // tch 0.8.0 removed this ->
+        // Tensor::normal_tensor_tensor_out(
+        //     &Tensor::empty(&shape, (self.mean.kind(), self.mean.device())),
+        //     &self.mean.expand(&shape, false),
+        //     &self.stddev.expand(&shape, false),
+        // )
+        Tensor::normal_(
+            &mut Tensor::empty(&shape, (self.mean.kind(), self.mean.device())),
+            f64::from(&self.mean),
+            f64::from(&self.stddev),
         )
     }
 
