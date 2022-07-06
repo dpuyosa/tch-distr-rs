@@ -12,7 +12,7 @@ license = "MIT/Apache-2.0"
 readme = "README.md"
 
 [dependencies]
-tch = "0.7.2"
+tch = "~0.8"
 
 [dev-dependencies]
 numpy = "0.16.2"
